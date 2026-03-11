@@ -19,6 +19,11 @@ for /f "delims=" %%a in ('ping -n 1 %target%') do (
         rem ---- RED TEXT ----
         color 0C
         echo *** TIMEOUT DETECTED ***
+        
+        rem ---- ADD TIMESTAMP HERE ----
+        echo Timeout at %date% %time% >> "%logfile%"
+        echo Timeout at %date% %time%
+
         echo *** TIMEOUT DETECTED *** >> "%logfile%"
         echo ^G
         color 07
