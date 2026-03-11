@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set target=10.201.16.10
+set target= 10.201.16.10
 set logfile=%~dp0ping_output_for_%target%.txt
 
 echo Logging to: %logfile%
@@ -19,6 +19,11 @@ for /f "delims=" %%a in ('ping -n 1 %target%') do (
         rem ---- RED TEXT ----
         color 0C
         echo *** TIMEOUT DETECTED ***
+        
+        rem ---- ADD TIMESTAMP HERE ----
+        echo Timeout at %date% %time% >> "%logfile%"
+        echo Timeout at %date% %time%
+
         echo *** TIMEOUT DETECTED *** >> "%logfile%"
         echo ^G
         color 07
